@@ -38,7 +38,7 @@ final class ViewController: UIViewController {
                                             case 1:
                                                 return StyleLabel(size: CGSize(width: 60, height: 50))
                                             case 2:
-                                                return StyleLabel(size: CGSize(width: 70, height: 50))
+                                                return CustomLabel(size: CGSize(width: 70, height: 50))
                                             default:
                                                 return StyleLabel(size: CGSize(width: 80, height: 50))
                                             }
