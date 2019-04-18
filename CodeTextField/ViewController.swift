@@ -1,0 +1,118 @@
+//
+//  ViewController.swift
+//  CodeTextField
+//
+//  Created by xiaobin liu on 2019/4/18.
+//  Copyright © 2019 Sky. All rights reserved.
+//
+
+import UIKit
+
+/// MARK - 演示
+final class ViewController: UIViewController {
+
+    /// 样式1
+    private lazy var style1: CodeTextField = {
+        
+        let temTextField = CodeTextField(codeLength: 4,
+                                         characterSpacing: 10,
+                                         validCharacterSet: CharacterSet(charactersIn: "0123456789"),
+                                         characterLabelGenerator: { (_) -> LableRenderable in
+                                           return StyleLabel(size: CGSize(width: 50, height: 50))
+        })
+        temTextField.keyboardType = .numberPad
+        return temTextField
+    }()
+    
+    
+    /// 样式2
+    private lazy var style2: CodeTextField = {
+        
+        let temTextField = CodeTextField(codeLength: 4,
+                                         characterSpacing: 10,
+                                         validCharacterSet: CharacterSet(charactersIn: "0123456789"),
+                                         characterLabelGenerator: { (idx) -> LableRenderable in
+                                            switch idx {
+                                            case 0:
+                                                return StyleLabel(size: CGSize(width: 50, height: 50))
+                                            case 1:
+                                                return StyleLabel(size: CGSize(width: 60, height: 50))
+                                            case 2:
+                                                return StyleLabel(size: CGSize(width: 70, height: 50))
+                                            default:
+                                                return StyleLabel(size: CGSize(width: 80, height: 50))
+                                            }
+        })
+        temTextField.keyboardType = .numberPad
+        return temTextField
+    }()
+    
+    /// 样式3
+    private lazy var style3: CodeTextField = {
+        
+        let temTextField = CodeTextField(codeLength: 6,
+                                         characterSpacing: 10,
+                                         validCharacterSet: CharacterSet(charactersIn: "0123456789"),
+                                         characterLabelGenerator: { (_) -> LableRenderable in
+                                            let label = StyleLabel(size: CGSize(width: 50, height: 50))
+                                            label.style = Style.border(nomal: UIColor.gray, selected: UIColor.red)
+                                            return label
+        })
+        temTextField.keyboardType = .numberPad
+        return temTextField
+    }()
+    
+    
+    /// 样式4
+    private lazy var style4: CodeTextField = {
+        
+        let temTextField = CodeTextField(codeLength: 6,
+                                         characterSpacing: 10,
+                                         validCharacterSet: CharacterSet(charactersIn: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"),
+                                         characterLabelGenerator: { (idx) -> LableRenderable in
+                                            
+                                            switch idx {
+                                            case 0:
+                                                return StyleLabel(size: CGSize(width: 50, height: 50))
+                                            case 1:
+                                                let label = StyleLabel(size: CGSize(width: 50, height: 50))
+                                                label.style = Style.border(nomal: UIColor.gray, selected: UIColor.blue)
+                                                return label
+                                            case 2:
+                                                return StyleLabel(size: CGSize(width: 50, height: 50))
+                                            case 3:
+                                                let label = StyleLabel(size: CGSize(width: 50, height: 50))
+                                                label.style = Style.border(nomal: UIColor.gray, selected: UIColor.orange)
+                                                return label
+                                            case 4:
+                                                return StyleLabel(size: CGSize(width: 50, height: 50))
+                                            default:
+                                                let label = StyleLabel(size: CGSize(width: 50, height: 50))
+                                                label.style = Style.border(nomal: UIColor.gray, selected: UIColor.purple)
+                                                return label
+                                            }
+        })
+        temTextField.keyboardType = .asciiCapable
+        temTextField.autocorrectionType = .no
+        return temTextField
+    }()
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        style1.frame = CGRect(x: 10, y: 100, width: view.frame.size.width - 20, height: 50)
+        style2.frame = CGRect(x: 10, y: style1.frame.maxY + 20, width: view.frame.size.width - 20, height: 50)
+        style3.frame = CGRect(x: 10, y: style2.frame.maxY + 20, width: view.frame.size.width - 20, height: 50)
+        style4.frame = CGRect(x: 10, y: style3.frame.maxY + 20, width: view.frame.size.width - 20, height: 50)
+        view.addSubview(style1)
+        view.addSubview(style2)
+        view.addSubview(style3)
+        view.addSubview(style4)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+}
+
