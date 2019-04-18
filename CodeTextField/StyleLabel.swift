@@ -39,7 +39,7 @@ public enum Style {
 }
 
 /// MARK - 标签
-public class StyleLabel: LableRenderable {
+public class StyleLabel: UILabel, CodeLable {
     
     /// 大小
     public var size: CGSize
@@ -116,4 +116,137 @@ public class StyleLabel: LableRenderable {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+
+
+/// MARK - 自定义
+public class CustomLabel: UILabel, CodeLable {
+
+    /// 大小
+    public var size: CGSize
+
+    /// 是否编辑
+    private var isEditing = false
+
+    /// 是否焦点
+    private var isFocusingCharacter = false
+
+    /// 线
+    private lazy var lineLayer: CAGradientLayer = {
+        let temLayer = CAGradientLayer()
+        let lineHeight: CGFloat = 1
+        temLayer.frame = CGRect(x: 0, y: size.height - lineHeight, width: self.size.width, height: lineHeight)
+        temLayer.colors = [UIColor.gray.cgColor,
+                                UIColor.gray.cgColor,
+                                UIColor.gray.cgColor]
+        temLayer.locations = [0.0, 0.25, 0.5]
+        temLayer.startPoint = CGPoint(x: 0, y: 0)
+        temLayer.endPoint = CGPoint(x: 1, y: 1)
+        return temLayer
+    }()
+
+    
+    
+    init(size: CGSize) {
+        self.size = size
+        super.init(frame: CGRect.zero)
+        layer.addSublayer(lineLayer)
+    }
+
+
+    /// 刷新文本
+    ///
+    /// - Parameters:
+    ///   - character: character
+    ///   - isFocusingCharacter: isFocusingCharacter
+    ///   - isEditing: isEditing
+    public func update(character: Character?, isFocusingCharacter: Bool, isEditing: Bool) {
+
+        text = character.map { String($0) }
+        self.isEditing = isEditing
+        self.isFocusingCharacter = isFocusingCharacter
+        if (text?.isEmpty ?? true) == false || (isEditing && isFocusingCharacter) {
+            lineLayer.colors = [UIColor.red.cgColor,
+                               UIColor.green.cgColor,
+                               UIColor.purple.cgColor]
+            
+        } else {
+            
+            lineLayer.colors = [UIColor.gray.cgColor,
+                               UIColor.gray.cgColor,
+                               UIColor.gray.cgColor]
+        }
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+}
+
+
+/// MARK - 自定义
+public class CustomBorderLabel: UILabel, CodeLable {
+    
+    /// 大小
+    public var size: CGSize
+    
+    /// 是否编辑
+    private var isEditing = false
+    
+    /// 是否焦点
+    private var isFocusingCharacter = false
+    
+    /// 线
+    private lazy var lineLayer: CAGradientLayer = {
+        let temLayer = CAGradientLayer()
+        let lineHeight: CGFloat = 1
+        temLayer.frame = CGRect(origin: CGPoint.zero, size: self.size)
+        temLayer.colors = [UIColor.gray.cgColor,
+                           UIColor.gray.cgColor,
+                           UIColor.gray.cgColor]
+        temLayer.locations = [0.0, 0.25, 0.5]
+        temLayer.startPoint = CGPoint(x: 0, y: 0)
+        temLayer.endPoint = CGPoint(x: 1, y: 1)
+        return temLayer
+    }()
+    
+    
+    
+    init(size: CGSize) {
+        self.size = size
+        super.init(frame: CGRect.zero)
+        layer.addSublayer(lineLayer)
+    }
+    
+    
+    /// 刷新文本
+    ///
+    /// - Parameters:
+    ///   - character: character
+    ///   - isFocusingCharacter: isFocusingCharacter
+    ///   - isEditing: isEditing
+    public func update(character: Character?, isFocusingCharacter: Bool, isEditing: Bool) {
+        
+        text = character.map { String($0) }
+        self.isEditing = isEditing
+        self.isFocusingCharacter = isFocusingCharacter
+        if (text?.isEmpty ?? true) == false || (isEditing && isFocusingCharacter) {
+            lineLayer.colors = [UIColor.red.cgColor,
+                                UIColor.green.cgColor,
+                                UIColor.purple.cgColor]
+            
+        } else {
+            
+            lineLayer.colors = [UIColor.gray.cgColor,
+                                UIColor.gray.cgColor,
+                                UIColor.gray.cgColor]
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 }
