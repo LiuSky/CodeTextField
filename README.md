@@ -1,29 +1,73 @@
-# CodeTextField
+## Requirements:
+- **iOS** 9.0+
+- Xcode 10.1+
+- Swift 5.0
 
-[![CI Status](https://img.shields.io/travis/Sky/CodeTextField.svg?style=flat)](https://travis-ci.org/Sky/CodeTextField)
-[![Version](https://img.shields.io/cocoapods/v/CodeTextField.svg?style=flat)](https://cocoapods.org/pods/CodeTextField)
-[![License](https://img.shields.io/cocoapods/l/CodeTextField.svg?style=flat)](https://cocoapods.org/pods/CodeTextField)
-[![Platform](https://img.shields.io/cocoapods/p/CodeTextField.svg?style=flat)](https://cocoapods.org/pods/CodeTextField)
+## Installation Cocoapods
+<pre><code class="ruby language-ruby">pod 'CodeTextField', '~> 0.1.0'</code></pre>
 
-## Example
+## Demo Figure
+<p align="center">
+<img src="https://github.com/LiuSky/CodeTextField/blob/master/1.png?raw=true" title="演示图">
+</p>
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
-
-## Installation
-
-CodeTextField is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod 'CodeTextField'
+## Usage
+### 1. 样式1
+```swift 
+    private lazy var style1: CodeTextField = {
+        
+        let temTextField = CodeTextField(codeLength: 4,
+                                         characterSpacing: 10,
+                                         validCharacterSet: CharacterSet(charactersIn: "0123456789"),
+                                         characterLabelGenerator: { (_) -> LableRenderable in
+                                           return StyleLabel(size: CGSize(width: 50, height: 50))
+        })
+        temTextField.keyboardType = .numberPad
+        return temTextField
+    }()
 ```
 
-## Author
+### 2.样式4
+```swift
+    /// 样式4
+    private lazy var style4: CodeTextField = {
+        
+        let temTextField = CodeTextField(codeLength: 6,
+                                         characterSpacing: 10,
+                                         validCharacterSet: CharacterSet(charactersIn: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"),
+                                         characterLabelGenerator: { (idx) -> LableRenderable in
+                                            
+                                            switch idx {
+                                            case 0:
+                                                return StyleLabel(size: CGSize(width: 50, height: 50))
+                                            case 1:
+                                                let label = StyleLabel(size: CGSize(width: 50, height: 50))
+                                                label.style = Style.border(nomal: UIColor.gray, selected: UIColor.blue)
+                                                return label
+                                            case 2:
+                                                return StyleLabel(size: CGSize(width: 50, height: 50))
+                                            case 3:
+                                                let label = StyleLabel(size: CGSize(width: 50, height: 50))
+                                                label.style = Style.border(nomal: UIColor.gray, selected: UIColor.orange)
+                                                return label
+                                            case 4:
+                                                return StyleLabel(size: CGSize(width: 50, height: 50))
+                                            default:
+                                                let label = StyleLabel(size: CGSize(width: 50, height: 50))
+                                                label.style = Style.border(nomal: UIColor.gray, selected: UIColor.purple)
+                                                return label
+                                            }
+        })
+        temTextField.keyboardType = .asciiCapable
+        temTextField.autocorrectionType = .no
+        return temTextField
+    }()
+```
 
-Sky, 327847390@qq.com
+## Reference
+<ul>
+<li><a href="https://kemchenj.github.io/2019-04-07/"><code>kemchenj</code></a></li>
+</ul>
 
 ## License
-
-CodeTextField is available under the MIT license. See the LICENSE file for more info.
+CodeTextField is released under an MIT license. See [LICENSE](LICENSE) for more information.
