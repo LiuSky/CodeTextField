@@ -21,6 +21,7 @@ final class ViewController: UIViewController {
                                            return StyleLabel(size: CGSize(width: 50, height: 50))
         })
         temTextField.keyboardType = .numberPad
+        temTextField.translatesAutoresizingMaskIntoConstraints = false
         return temTextField
     }()
     
@@ -44,6 +45,7 @@ final class ViewController: UIViewController {
                                             }
         })
         temTextField.keyboardType = .numberPad
+        temTextField.translatesAutoresizingMaskIntoConstraints = false
         return temTextField
     }()
     
@@ -59,6 +61,7 @@ final class ViewController: UIViewController {
                                             return label
         })
         temTextField.keyboardType = .numberPad
+        temTextField.translatesAutoresizingMaskIntoConstraints = false
         return temTextField
     }()
     
@@ -94,20 +97,42 @@ final class ViewController: UIViewController {
         })
         temTextField.keyboardType = .asciiCapable
         temTextField.autocorrectionType = .no
+        temTextField.translatesAutoresizingMaskIntoConstraints = false
         return temTextField
     }()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        style1.frame = CGRect(x: 10, y: 100, width: view.frame.size.width - 20, height: 50)
-        style2.frame = CGRect(x: 10, y: style1.frame.maxY + 20, width: view.frame.size.width - 20, height: 50)
-        style3.frame = CGRect(x: 10, y: style2.frame.maxY + 20, width: view.frame.size.width - 20, height: 50)
-        style4.frame = CGRect(x: 10, y: style3.frame.maxY + 20, width: view.frame.size.width - 20, height: 50)
         view.addSubview(style1)
         view.addSubview(style2)
         view.addSubview(style3)
         view.addSubview(style4)
+        
+        NSLayoutConstraint.activate([
+            style1.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            style1.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
+            style1.heightAnchor.constraint(equalToConstant: 50),
+        ])
+        
+        
+        NSLayoutConstraint.activate([
+            style2.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            style2.topAnchor.constraint(equalTo: style1.bottomAnchor, constant: 20),
+            style2.heightAnchor.constraint(equalToConstant: 50),
+        ])
+        
+        NSLayoutConstraint.activate([
+            style3.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            style3.topAnchor.constraint(equalTo: style2.bottomAnchor, constant: 20),
+            style3.heightAnchor.constraint(equalToConstant: 50),
+        ])
+        
+        NSLayoutConstraint.activate([
+            style4.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            style4.topAnchor.constraint(equalTo: style3.bottomAnchor, constant: 20),
+            style4.heightAnchor.constraint(equalToConstant: 50),
+        ])
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
