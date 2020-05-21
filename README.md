@@ -1,5 +1,5 @@
 # CodeTextField
-
+![Lint](https://github.com/LiuSky/CodeTextField/workflows/Lint/badge.svg)
 [![Version](https://img.shields.io/cocoapods/v/CodeTextField.svg?style=flat)](https://cocoapods.org/pods/CodeTextField)
 [![License](https://img.shields.io/cocoapods/l/CodeTextField.svg?style=flat)](https://cocoapods.org/pods/CodeTextField)
 [![Platform](https://img.shields.io/cocoapods/p/CodeTextField.svg?style=flat)](https://cocoapods.org/pods/CodeTextField)
