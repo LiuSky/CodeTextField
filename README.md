@@ -10,7 +10,7 @@
 - Swift 5.0
 
 ## Installation Cocoapods
-<pre><code class="ruby language-ruby">pod 'CodeTextField', '~> 0.1.0'</code></pre>
+<pre><code class="ruby language-ruby">pod 'CodeTextField', '~> 0.2.0'</code></pre>
 
 ## Demo Figure
 <p align="center">
