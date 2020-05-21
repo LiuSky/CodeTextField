@@ -1,0 +1,16 @@
+PODS:
+  - CodeTextField (0.1.0)
+
+DEPENDENCIES:
+  - CodeTextField (from `../`)
+
+EXTERNAL SOURCES:
+  CodeTextField:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CodeTextField: 530c6113da9014bd452969ae6e812cc98ecdef76
+
+PODFILE CHECKSUM: a260fe15d8da46786a53bbbdf6f7dcd94a68a40a
+
+COCOAPODS: 1.9.1

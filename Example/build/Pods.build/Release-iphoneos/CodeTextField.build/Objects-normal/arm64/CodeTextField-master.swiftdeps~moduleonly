@@ -1,0 +1,6 @@
+version: "Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+options: "fea0137eb0ca0fd05a82a9ea366be727"
+build_time: [1590047074, 275093000]
+inputs:
+  "/Users/xiaobinliu/Desktop/Github/CodeTextField/CodeTextField/Classes/CodeTextField.swift": [9223372036, 854775807]
+  "/Users/xiaobinliu/Desktop/Github/CodeTextField/CodeTextField/Classes/LableRenderable.swift": [9223372036, 854775807]

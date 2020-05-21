@@ -16,6 +16,5 @@ Pod::Spec.new do |s|
   s.swift_version         = '5.0'
   s.requires_arc = true
   s.ios.deployment_target = '9.0'
-  s.source_files = 'CodeTextField/Core/*.swift'
+  s.source_files = 'CodeTextField/Classes/*.swift'
 end
-

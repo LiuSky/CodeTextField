@@ -1,0 +1,6 @@
+framework module CodeTextField {
+  umbrella header "CodeTextField-umbrella.h"
+
+  export *
+  module * { export * }
+}

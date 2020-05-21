@@ -1,3 +1,9 @@
+# CodeTextField
+
+[![Version](https://img.shields.io/cocoapods/v/CodeTextField.svg?style=flat)](https://cocoapods.org/pods/CodeTextField)
+[![License](https://img.shields.io/cocoapods/l/CodeTextField.svg?style=flat)](https://cocoapods.org/pods/CodeTextField)
+[![Platform](https://img.shields.io/cocoapods/p/CodeTextField.svg?style=flat)](https://cocoapods.org/pods/CodeTextField)
+
 ## Requirements:
 - **iOS** 9.0+
 - Xcode 10.1+
@@ -71,3 +77,4 @@
 
 ## License
 CodeTextField is released under an MIT license. See [LICENSE](LICENSE) for more information.
+

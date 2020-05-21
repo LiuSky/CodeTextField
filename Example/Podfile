@@ -1,0 +1,9 @@
+use_frameworks!
+
+target 'CodeTextField_Example' do
+  pod 'CodeTextField', :path => '../'
+  
+  target 'CodeTextField_Tests' do
+    inherit! :search_paths
+  end
+end

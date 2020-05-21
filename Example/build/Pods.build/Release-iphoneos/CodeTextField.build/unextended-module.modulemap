@@ -1,0 +1,10 @@
+framework module CodeTextField {
+  umbrella header "CodeTextField-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module CodeTextField.__Swift {
+    exclude header "CodeTextField-Swift.h"
+}
