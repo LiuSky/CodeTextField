@@ -14,7 +14,7 @@
 
 ## Demo Figure
 <p align="center">
-<img src="https://github.com/LiuSky/CodeTextField/blob/master/1.png?raw=true" title="演示图">
+<img src="https://github.com/LiuSky/CodeTextField/blob/master/demo.png?raw=true" title="演示图">
 </p>
 
 ## Usage
