@@ -1,6 +1,6 @@
 {
   "name": "CodeTextField",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "summary": "验证码文本组件",
   "description": "验证码文本组件",
   "homepage": "https://github.com/LiuSky/CodeTextField",
@@ -10,7 +10,7 @@
   },
   "source": {
     "git": "https://github.com/LiuSky/CodeTextField.git",
-    "tag": "0.1.0"
+    "tag": "0.3.0"
   },
   "swift_versions": "5.0",
   "requires_arc": true,

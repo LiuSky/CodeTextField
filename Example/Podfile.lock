@@ -1,5 +1,5 @@
 PODS:
-  - CodeTextField (0.1.0)
+  - CodeTextField (0.3.0)
 
 DEPENDENCIES:
   - CodeTextField (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CodeTextField: 530c6113da9014bd452969ae6e812cc98ecdef76
+  CodeTextField: e1df3fcb12a7c546a56eec07f06d053b6ff36b1e
 
 PODFILE CHECKSUM: a260fe15d8da46786a53bbbdf6f7dcd94a68a40a
 

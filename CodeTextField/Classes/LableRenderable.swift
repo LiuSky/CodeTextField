@@ -16,7 +16,7 @@ public typealias LableRenderable = UILabel & CodeLable
 public protocol CodeLable {
     
     /// 大小
-    var size: CGSize { get }
+    var itemSize: CGSize { get }
     
     /// 刷新方法
     ///

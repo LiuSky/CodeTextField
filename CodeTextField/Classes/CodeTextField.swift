@@ -56,11 +56,11 @@ public class CodeTextField: UITextField, UITextFieldDelegate {
         
         var width: CGFloat = characterSpacing * CGFloat(codeLength - 1)
         characterLabels.forEach {
-            width += $0.size.width
+            width += $0.itemSize.width
         }
         return CGSize(
             width: width,
-            height: characterLabels.first?.size.height ?? 0
+            height: characterLabels.first?.itemSize.height ?? 0
         )
     }
     
@@ -78,10 +78,10 @@ public class CodeTextField: UITextField, UITextFieldDelegate {
             return CGRect(origin: .zero, size: .zero)
         }
         
-        let width = characterLabels[currentEditingPosition].size.width
+        let width = characterLabels[currentEditingPosition].itemSize.width
         var offSet: CGFloat = 0
         (0..<currentEditingPosition).forEach { idx in
-            offSet += characterLabels[idx].size.width + characterSpacing
+            offSet += characterLabels[idx].itemSize.width + characterSpacing
         }
         
         let x = offSet + width / 2 - superRect.width / 2
@@ -221,11 +221,11 @@ public class CodeTextField: UITextField, UITextFieldDelegate {
             label.frame = CGRect(
                 x: nextX,
                 y: 0,
-                width: label.size.width,
-                height: label.size.height
+                width: label.itemSize.width,
+                height: label.itemSize.height
             )
             
-            nextX += (label.size.width + characterSpacing)
+            nextX += (label.itemSize.width + characterSpacing)
         }
     }
     

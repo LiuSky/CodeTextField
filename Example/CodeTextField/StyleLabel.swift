@@ -41,7 +41,7 @@ public enum Style {
 public class StyleLabel: UILabel, CodeLable {
     
     /// 大小
-    public var size: CGSize
+    public var itemSize: CGSize
     
     /// 风格
     public var style: Style = Style.line(nomal: UIColor.gray, selected: UIColor.red) {
@@ -72,13 +72,13 @@ public class StyleLabel: UILabel, CodeLable {
     private lazy var lineLayer: CALayer = {
         let temLayer = CALayer()
         let lineHeight: CGFloat = 1
-        temLayer.frame = CGRect(x: 0, y: self.size.height - lineHeight, width: self.size.width, height: lineHeight)
+        temLayer.frame = CGRect(x: 0, y: itemSize.height - lineHeight, width: itemSize.width, height: lineHeight)
         temLayer.backgroundColor = self.style.nomal.cgColor
         return temLayer
     }()
     
     init(size: CGSize) {
-        self.size = size
+        self.itemSize = size
         super.init(frame: CGRect.zero)
         layer.addSublayer(lineLayer)
     }
@@ -123,7 +123,7 @@ public class StyleLabel: UILabel, CodeLable {
 public class CustomLabel: UILabel, CodeLable {
 
     /// 大小
-    public var size: CGSize
+    public var itemSize: CGSize
 
     /// 是否编辑
     private var isEditing = false
@@ -135,7 +135,7 @@ public class CustomLabel: UILabel, CodeLable {
     private lazy var lineLayer: CAGradientLayer = {
         let temLayer = CAGradientLayer()
         let lineHeight: CGFloat = 1
-        temLayer.frame = CGRect(x: 0, y: size.height - lineHeight, width: self.size.width, height: lineHeight)
+        temLayer.frame = CGRect(x: 0, y: itemSize.height - lineHeight, width: itemSize.width, height: lineHeight)
         temLayer.colors = [UIColor.gray.cgColor,
                                 UIColor.gray.cgColor,
                                 UIColor.gray.cgColor]
@@ -148,7 +148,7 @@ public class CustomLabel: UILabel, CodeLable {
     
     
     init(size: CGSize) {
-        self.size = size
+        self.itemSize = size
         super.init(frame: CGRect.zero)
         layer.addSublayer(lineLayer)
     }
@@ -189,7 +189,7 @@ public class CustomLabel: UILabel, CodeLable {
 public class CustomBorderLabel: UILabel, CodeLable {
     
     /// 大小
-    public var size: CGSize
+    public var itemSize: CGSize
     
     /// 是否编辑
     private var isEditing = false
@@ -201,7 +201,7 @@ public class CustomBorderLabel: UILabel, CodeLable {
     private lazy var lineLayer: CAGradientLayer = {
         let temLayer = CAGradientLayer()
         let lineHeight: CGFloat = 1
-        temLayer.frame = CGRect(origin: CGPoint.zero, size: self.size)
+        temLayer.frame = CGRect(origin: CGPoint.zero, size: itemSize)
         temLayer.colors = [UIColor.gray.cgColor,
                            UIColor.gray.cgColor,
                            UIColor.gray.cgColor]
@@ -214,7 +214,7 @@ public class CustomBorderLabel: UILabel, CodeLable {
     
     
     init(size: CGSize) {
-        self.size = size
+        self.itemSize = size
         super.init(frame: CGRect.zero)
         layer.addSublayer(lineLayer)
     }
