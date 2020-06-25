@@ -10,7 +10,7 @@
 - Swift 5.0
 
 ## Installation Cocoapods
-<pre><code class="ruby language-ruby">pod 'CodeTextField', '~> 0.2.0'</code></pre>
+<pre><code class="ruby language-ruby">pod 'CodeTextField', '~> 0.3.0'</code></pre>
 
 ## Demo Figure
 <p align="center">
@@ -33,9 +33,9 @@
     }()
 ```
 
-### 2.样式4
+### 2.样式2
 ```swift
-    /// 样式4
+    /// 样式2
     private lazy var style4: CodeTextField = {
         
         let temTextField = CodeTextField(codeLength: 6,
