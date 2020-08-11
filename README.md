@@ -10,7 +10,7 @@
 - Swift 5.0
 
 ## Installation Cocoapods
-<pre><code class="ruby language-ruby">pod 'CodeTextField', '~> 0.3.0'</code></pre>
+<pre><code class="ruby language-ruby">pod 'CodeTextField', '~> 0.4.0'</code></pre>
 
 ## Demo Figure
 <p align="center">
@@ -66,6 +66,9 @@
         })
         temTextField.keyboardType = .asciiCapable
         temTextField.autocorrectionType = .no
+        temTextField.valueChanged = { result in
+            debugPrint(result)
+        }
         return temTextField
     }()
 ```
