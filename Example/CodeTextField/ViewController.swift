@@ -23,6 +23,7 @@ final class ViewController: UIViewController {
         })
         temTextField.keyboardType = .numberPad
         temTextField.translatesAutoresizingMaskIntoConstraints = false
+        temTextField.codeDelegate = self
         return temTextField
     }()
     
@@ -47,6 +48,9 @@ final class ViewController: UIViewController {
         })
         temTextField.keyboardType = .numberPad
         temTextField.translatesAutoresizingMaskIntoConstraints = false
+        temTextField.valueChanged = { result in
+            debugPrint(result)
+        }
         return temTextField
     }()
     
@@ -105,6 +109,8 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         view.addSubview(style1)
         view.addSubview(style2)
         view.addSubview(style3)
@@ -139,6 +145,14 @@ final class ViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
+    }
+}
+
+/// MARK - CodeTextFieldDelegate
+extension ViewController: CodeTextFieldDelegate {
+    
+    func codeTextField(_ sender: CodeTextField, valueChanged: String) {
+        debugPrint(valueChanged)
     }
 }
 

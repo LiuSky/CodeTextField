@@ -8,8 +8,26 @@
 
 import UIKit
 
+
+/// MARK - CodeTextFieldDelegate
+public protocol CodeTextFieldDelegate: NSObjectProtocol {
+    
+    /// 值改变
+    /// - Parameters:
+    ///   - sender: sender
+    ///   - value: valueChanged
+    func codeTextField(_ sender: CodeTextField, valueChanged: String)
+}
+
+
 /// MARK - 验证码文本框
 public class CodeTextField: UITextField, UITextFieldDelegate {
+    
+    /// 委托
+    public weak var codeDelegate: CodeTextFieldDelegate?
+    
+    /// 值改变
+    public var valueChanged: ((String) -> Void)?
     
     /// 验证码长度
     let codeLength: Int
@@ -151,8 +169,11 @@ public class CodeTextField: UITextField, UITextFieldDelegate {
         let isUsingValidCharacterSet = validCharacterSet.isSuperset(of: newTextCharacterSet)
         if isValidLength, isUsingValidCharacterSet {
             textField.text = newText
+            codeDelegate?.codeTextField(self, valueChanged: newText)
+            valueChanged?(newText)
             sendActions(for: .editingChanged)
         }
+        
         return false
     }
     
